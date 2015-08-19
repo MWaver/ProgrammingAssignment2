@@ -1,6 +1,7 @@
 #This script contains two functions: makeCacheMatrix() and cachesolve()
 
 #  makeCacheMatrix() 
+#       syntax: makeCacheMatrix(DATA, nrow, ncol, byrow, dimnames)
 #       e.g.    myMatrix <- makeCacheMatrix(matrix(c(10,15,20,25),nrow=2,ncol=2))
 
 #    This function creates a matrix object which also has 4 function elements that
@@ -11,7 +12,7 @@
 #            Also resets any previously stored associated inverse matrix calculation
 #        - get:
 #            e.g.   myMatrix$get()
-#            Gets the data content of the matrix object
+#            Returns the data content of the matrix object
 #        - setinverse: 
 #            NOTE: This function should only be called through the use of function
 #            cachesolve() to avoid unnecessary computations (see cachesolve() below)
@@ -19,7 +20,7 @@
 #            the matrix object
 #        - getinverse:
 #            e.g.   myMatrix$getinverse()
-#            will display the value currently stored as inverse matrix in the matrix
+#            Will display the value currently stored as inverse matrix in the matrix
 #            object
 
 ## makeCacheMatrix(DATA, nrow, ncol, byrow, dimnames)
@@ -42,11 +43,12 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 #   cachesolve()
+#       syntax: cachesolve(CacheMatrixObject)
 #       e.g.    cachesolve(myMatrix)
 #       
 #       This function is for use with matrix objects created with the makeCacheMatrix()
 #       function. It will calculate an inverse matrix for the matrix object and store
-#       it in the object (invMatrix). In the event an inverse matrix was previously
+#       it (invMatrix) in the object. In the event an inverse matrix was previously
 #       calculated and stored in this object, the stored data will be retrieved instead
 #       of calculating the inverse matrix again.
 
